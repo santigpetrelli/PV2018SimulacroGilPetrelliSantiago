@@ -11,22 +11,26 @@
             <h:form id="frmLibro">
                 <p:panelGrid id="tblLibro" columns="2">
                     <p:outputLabel id="lblISBN" value="Ingrese ISBN"/>
-                    <p:inputText id="txtISBN" value="#{librosFormBeans.isbn}"/>
+                    <p:inputText id="txtISBN" value="#{librosFormBeans.isbn}" required="true"/>
                     <p:outputLabel id="lblTitulo" value="Ingrese Titulo"/>
-                    <p:inputText id="txtTitulo" value="#{librosFormBeans.titulo}"/>
+                    <p:inputText id="txtTitulo" value="#{librosFormBeans.titulo}" required="true"/>
                     <p:outputLabel id="lblAutor" value="Ingrese Autor"/>
-                    <p:inputText id="txtAutor" value="#{librosFormBeans.autor}"/>
+                    <p:inputText id="txtAutor" value="#{librosFormBeans.autor}" required="true"/>
                     <p:outputLabel id="lblPrecio" value="Ingrese Precio"/>
-                    <p:inputNumber id="txtPrecio" value="#{librosFormBeans.precio}"/>
-                    <p:outputLabel/>
+                    <p:inputNumber id="txtPrecio" value="#{librosFormBeans.precio}" required="true"/>
+                    <p:commandButton id="btnBorrarLibro" value="Limpiar Libros Guardados"
+                                     update="tblMuestraLibros"
+                                     actionListener="#{librosFormBeans.reinciar()}"/>
                     <p:commandButton id="btnGuardarLibro" value="Guardar Libro"
                                      update="tblMuestraLibros"
                                      actionListener="#{librosFormBeans.guardarLibro()}"/>
                 </p:panelGrid>
                 <p:panelGrid id="tblBuscarLibros" columns="2">
                     <p:outputLabel id="lblBuscarL" value="Titulo a buscar:"/>
-                    <p:inputText id="txtBuscarL" value="#{librosFormBeans.titulo}"/>
-                    <p:outputLabel/>
+                    <p:inputText id="txtBuscarL" value="#{librosFormBeans.auxTitulo}"/>
+                    <p:commandButton id="btnBorrarLibroF" value="Limpiar Libros Filtrados"
+                                     update="tblBusquedaLibros"
+                                     actionListener="#{librosFormBeans.reinciar()}"/>
                     <p:commandButton id="btnBuscarL" value="Buscar Libro"
                                      update="tblBusquedaLibros"
                                      actionListener="#{librosFormBeans.buscarLibro()}"/>
