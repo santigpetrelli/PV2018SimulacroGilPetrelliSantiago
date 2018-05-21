@@ -13,6 +13,7 @@ import aplicacion.modelo.Libro;
 import aplicacion.modelo.Libro;
 import aplicacion.modelo.ListaLibros;
 import aplicacion.modelo.ListaLibros;
+import java.io.Serializable;
 
 /**
  *
@@ -20,7 +21,7 @@ import aplicacion.modelo.ListaLibros;
  */
 @ManagedBean
 @ViewScoped
-public class LibrosFormBeans {
+public class LibrosFormBeans implements Serializable{
     private String isbn;
     private String titulo;
     private String autor;
